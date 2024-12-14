@@ -8,7 +8,6 @@ A template repository for FPGA projects on the Nexys A7 Board featuring the XC7A
 -   [Features](#features)
 -   [Getting Started](#getting-started)
 -   [Usage](#usage)
--   [Contributing](#contributing)
 -   [License](#license)
 
 ## Overview
@@ -50,7 +49,7 @@ To get started with the `nexys-a7-fpga-template` project, follow these steps:
 
 ### Simulation
 
-1. Navigate to the `sim` directory.
+1. Navigate to the `nexys_a7_fpga_template.srcs/sim_1/` directory.
 2. Run the provided simulation scripts to verify your design.
 
 ## License

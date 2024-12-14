@@ -8,12 +8,16 @@ Before you begin, ensure you have the following tools installed:
 
 -   [Vivado Design Suite](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools.html) installed on your computer.
 -   [MinGW-w64](https://www.mingw-w64.org/) (for GCC):
-    -   Download and install [MinGW-w64](https://www.mingw-w64.org/downloads/).
-    -   Add the MinGW-w64 bin folder (e.g., `C:\Program Files\msys64\ucrt64\bin`) to your system's PATH environment variable.
+    -   **Manual Installation**:
+        -   Download and install [MinGW-w64](https://www.mingw-w64.org/downloads/).
+        -   Add the MinGW-w64 bin folder (e.g., `C:/Program Files/mingw64/bin/`) to your system's PATH environment variable.
+    -   **Automatic Installation**:
+        -   Download [MinGW-W64 online installer](https://github.com/Vuniverse0/mingwInstaller/releases/download/1.2.1/mingwInstaller.exe).
+        -   Run executable as Admin and choose `C:/Program Files/` as your directory.
     -   Verify the installation by opening a Command Prompt and typing `gcc --version`.
 -   If using [VSCode](https://code.visualstudio.com/):
     -   Install the recommended workspace extensions.
-    -   Install [verible](https://github.com/chipsalliance/verible) and place the binaries in `C:\Program Files\verible`.
+    -   Install [verible](https://github.com/chipsalliance/verible) and place the binaries in `C:/Program Files/verible`.
 
 ## Installation
 
@@ -84,5 +88,5 @@ nexys_a7_fpga_template/
 
 To verify your design, you can run simulations using the provided testbenches:
 
-1. Navigate to the `sim` directory.
+1. Navigate to the `nexys_a7_fpga_tempalte/srcs/sim_1/` directory.
 2. Use the provided simulation scripts to run the simulations and analyze the results.
