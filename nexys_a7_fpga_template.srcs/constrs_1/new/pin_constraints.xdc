@@ -1,23 +1,41 @@
-# -----------------------------------------------------------------------------------
-# IOSTANDARD Definitions:
-# LVCMOS33  - Low Voltage CMOS, 3.3V. Commonly used for general-purpose I/O with 3.3V logic.
-# LVCMOS25  - Low Voltage CMOS, 2.5V. Used for interfacing with 2.5V logic devices.
-# LVCMOS18  - Low Voltage CMOS, 1.8V. Suitable for interfacing with 1.8V logic devices.
-# LVTTL     - Low Voltage TTL, typically 3.3V. Used for compatibility with TTL logic levels.
-# SSTL18_I  - Stub-Series Terminated Logic, 1.8V. Commonly used for DDR2 memory interfaces.
-# SSTL15    - Stub-Series Terminated Logic, 1.5V. Used for high-speed memory interfaces like DDR3.
-# HSTL_I    - High-Speed Transceiver Logic. Used for high-speed data interfaces.
-# -----------------------------------------------------------------------------------
+########################################################################################################################
+## @file pin_constraints.xdc
+##
+## @brief This file defines the pin constraints for the FPGA project.
+##
+## Detailed Description:
+## This XDC (Xilinx Design Constraints) file specifies the pin assignments and constraints for the FPGA project. These
+## constraints include mapping FPGA pins to external signals, setting I/O standards, drive strengths, slew rates, and
+## other pin-related settings required for the design.
+##
+## Key Properties:
+## - **PACKAGE_PIN**: Specifies the physical pin on the FPGA package.
+## - **IOSTANDARD**: Defines the I/O standard (e.g., LVCMOS33, SSTL18) to ensure proper voltage levels and interface
+##   compatibility.
+## - **DRIVE**: Sets the drive strength (e.g., 12mA, 16mA) for the output buffer, which affects the ability to drive
+##   different load capacitances.
+## - **SLEW**: Specifies the slew rate (e.g., FAST, SLOW) of the output signal, influencing the transition time and
+##   reducing potential signal integrity issues.
+##
+## Revision History:
+## - v1.0: Initial release.
+##
+## License Info:
+## This file is provided under the [Your License Name Here]. Please review the terms and conditions before use.
+##
+## Author: [Your Name]
+## Date: [Current Date]
+########################################################################################################################
 
 #### Oscillators / Clocks ####
-## DSC1033CC1-100.0000T: 3.3V PureSilicon Oscillator
+### DSC1033CC1-100.0000T: 3.3V PureSilicon Oscillator
 set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports {clk100mhz}];  # IO_L12P_T1_MRCC_35
 
 #### Buttons ####
-## PTA-142 Red Knob: 4 Pin Button, SMT
+### PTA-142 Red Knob: 4 Pin Button, SMT
 set_property -dict {PACKAGE_PIN C12 IOSTANDARD LVCMOS33} [get_ports {cpu_resetn}];  # IO_L3P_T0_DQS_AD1P_15
 
-## PTA-142: 4 Pin Button, SMT
+### PTA-142: 4 Pin Button, SMT
 # set_property -dict {PACKAGE_PIN M18 IOSTANDARD LVCMOS33} [get_ports {btnu}];  # IO_L4N_T0_D05_14
 # set_property -dict {PACKAGE_PIN P17 IOSTANDARD LVCMOS33} [get_ports {btnl}];  # IO_L12P_T1_MRCC_14
 # set_property -dict {PACKAGE_PIN N17 IOSTANDARD LVCMOS33} [get_ports {btnc}];  # IO_L9P_T1_DQS_14
@@ -25,7 +43,7 @@ set_property -dict {PACKAGE_PIN C12 IOSTANDARD LVCMOS33} [get_ports {cpu_resetn}
 # set_property -dict {PACKAGE_PIN P18 IOSTANDARD LVCMOS33} [get_ports {btnd}];  # IO_L9N_T1_DQS_D13_14
 
 #### Slide Switches ####
-## SWITCH: SPDT, Thru Hole, Slide Switch
+### SWITCH: SPDT, Thru Hole, Slide Switch
 set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports {sw[0]}];  # IO_L24N_T3_RS0_15
 set_property -dict {PACKAGE_PIN L16 IOSTANDARD LVCMOS33} [get_ports {sw[1]}];  # IO_L3N_T0_DQS_EMCCLK_14
 set_property -dict {PACKAGE_PIN M13 IOSTANDARD LVCMOS33} [get_ports {sw[2]}];  # IO_L6N_T0_D08_VREF_14
@@ -44,7 +62,7 @@ set_property -dict {PACKAGE_PIN U11 IOSTANDARD LVCMOS33} [get_ports {sw[14]}];  
 set_property -dict {PACKAGE_PIN V10 IOSTANDARD LVCMOS33} [get_ports {sw[15]}];  # IO_L21P_T3_DQS_14
 
 #### LEDs ####
-## Highbright: Generic LED
+### Highbright: Generic LED
 set_property -dict {PACKAGE_PIN H17 IOSTANDARD LVCMOS33} [get_ports {led[0]}];  # IO_L18P_T2_A24_15
 set_property -dict {PACKAGE_PIN K15 IOSTANDARD LVCMOS33} [get_ports {led[1]}];  # IO_L24P_T3_RS1_15
 set_property -dict {PACKAGE_PIN J13 IOSTANDARD LVCMOS33} [get_ports {led[2]}];  # IO_L17N_T2_A25_15
@@ -63,7 +81,7 @@ set_property -dict {PACKAGE_PIN V12 IOSTANDARD LVCMOS33} [get_ports {led[14]}]; 
 set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}];  # IO_L21N_T3_DQS_A06_D22_14
 
 #### Tri-Color LED ####
-## VS NRD8: Tri color chip LED
+### VS NRD8: Tri color chip LED
 # set_property -dict {PACKAGE_PIN N15 IOSTANDARD LVCMOS33} [get_ports {led16_r}];  # IO_L11P_T1_SRCC_14
 # set_property -dict {PACKAGE_PIN M16 IOSTANDARD LVCMOS33} [get_ports {led16_g}];  # IO_L10P_T1_D14_14
 # set_property -dict {PACKAGE_PIN R12 IOSTANDARD LVCMOS33} [get_ports {led16_b}];  # IO_L5P_T0_D06_14
@@ -72,8 +90,8 @@ set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}]; 
 # set_property -dict {PACKAGE_PIN G14 IOSTANDARD LVCMOS33} [get_ports {led16_b}];  # IO_L15N_T2_DQS_ADV_B_15
 
 #### Seven-Segment Display ####
-## KW4-281ASB: 4 Digit, 12 Pins, Common Anode, 7 Segment Display, Red
-### Anodes
+### KW4-281ASB: 4 Digit, 12 Pins, Common Anode, 7 Segment Display, Red
+## Anodes
 # set_property -dict {PACKAGE_PIN J17 IOSTANDARD LVCMOS33} [get_ports {an[0]}];  # IO_L23P_T3_FOE_B_15
 # set_property -dict {PACKAGE_PIN J18 IOSTANDARD LVCMOS33} [get_ports {an[1]}];  # IO_L23N_T3_FWE_B_15
 # set_property -dict {PACKAGE_PIN T9 IOSTANDARD LVCMOS33} [get_ports {an[2]}];  # IO_L24P_T3_A01_D17_14
@@ -83,7 +101,7 @@ set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}]; 
 # set_property -dict {PACKAGE_PIN K2 IOSTANDARD LVCMOS33} [get_ports {an[6]}];  # IO_L23P_T3_35
 # set_property -dict {PACKAGE_PIN U13 IOSTANDARD LVCMOS33} [get_ports {an[7]}];  # IO_L23N_T3_A02_D18_14
 
-### Cathodes
+## Cathodes
 # set_property -dict {PACKAGE_PIN T10 IOSTANDARD LVCMOS33} [get_ports {ca}];  # IO_L24N_T3_A00_D16_14
 # set_property -dict {PACKAGE_PIN R10 IOSTANDARD LVCMOS33} [get_ports {cb}];  # IO_25_14
 # set_property -dict {PACKAGE_PIN K16 IOSTANDARD LVCMOS33} [get_ports {cc}];  # IO_25_15
@@ -94,8 +112,8 @@ set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}]; 
 # set_property -dict {PACKAGE_PIN H15 IOSTANDARD LVCMOS33} [get_ports {dp}];  # IO_L19N_T3_A21_VREF_15
 
 #### Pmod Ports ####
-## PMOD-2x6-S: Pmod System Board Header 2x6, 100mil spaced
-### JA
+### PMOD-2x6-S: Pmod System Board Header 2x6, 100mil spaced
+## JA
 # set_property -dict {PACKAGE_PIN C17 IOSTANDARD LVCMOS33} [get_ports {ja[0]}];  # IO_L20N_T3_A19_15
 # set_property -dict {PACKAGE_PIN D18 IOSTANDARD LVCMOS33} [get_ports {ja[1]}];  # IO_L21N_T3_DQS_A18_15
 # set_property -dict {PACKAGE_PIN E18 IOSTANDARD LVCMOS33} [get_ports {ja[2]}];  # IO_L21P_T3_DQS_15
@@ -105,7 +123,7 @@ set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}]; 
 # set_property -dict {PACKAGE_PIN F18 IOSTANDARD LVCMOS33} [get_ports {ja[6]}];  # IO_L22N_T3_A16_15
 # set_property -dict {PACKAGE_PIN G18 IOSTANDARD LVCMOS33} [get_ports {ja[7]}];  # IO_L22P_T3_A17_15
 
-### JB
+## JB
 # set_property -dict {PACKAGE_PIN D14 IOSTANDARD LVCMOS33} [get_ports {jb[0]}];  # IO_L1P_T0_AD0P_15
 # set_property -dict {PACKAGE_PIN F16 IOSTANDARD LVCMOS33} [get_ports {jb[1]}];  # IO_L14N_T2_SRCC_15
 # set_property -dict {PACKAGE_PIN G16 IOSTANDARD LVCMOS33} [get_ports {jb[2]}];  # IO_L13N_T2_MRCC_15
@@ -115,7 +133,7 @@ set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}]; 
 # set_property -dict {PACKAGE_PIN G13 IOSTANDARD LVCMOS33} [get_ports {jb[6]}];  # IO_0_15
 # set_property -dict {PACKAGE_PIN H16 IOSTANDARD LVCMOS33} [get_ports {jb[7]}];  # IO_L13P_T2_MRCC_15
 
-### JC
+## JC
 # set_property -dict {PACKAGE_PIN K1 IOSTANDARD LVCMOS33} [get_ports {jc[0]}];  # IO_L23N_T3_35
 # set_property -dict {PACKAGE_PIN F6 IOSTANDARD LVCMOS33} [get_ports {jc[1]}];  # IO_L19N_T3_VREF_35
 # set_property -dict {PACKAGE_PIN J2 IOSTANDARD LVCMOS33} [get_ports {jc[2]}];  # IO_L22N_T3_35
@@ -125,7 +143,7 @@ set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}]; 
 # set_property -dict {PACKAGE_PIN J4 IOSTANDARD LVCMOS33} [get_ports {jc[6]}];  # IO_L21P_T3_DQS_35
 # set_property -dict {PACKAGE_PIN E6 IOSTANDARD LVCMOS33} [get_ports {jc[7]}];  # IO_L5P_T0_AD13P_35
 
-### JD
+## JD
 # set_property -dict {PACKAGE_PIN H4 IOSTANDARD LVCMOS33} [get_ports {jd[0]}];  # IO_L21N_T3_DQS_35
 # set_property -dict {PACKAGE_PIN H1 IOSTANDARD LVCMOS33} [get_ports {jd[1]}];  # IO_L17P_T2_35
 # set_property -dict {PACKAGE_PIN G1 IOSTANDARD LVCMOS33} [get_ports {jd[2]}];  # IO_L17N_T2_35
@@ -135,7 +153,7 @@ set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}]; 
 # set_property -dict {PACKAGE_PIN G2 IOSTANDARD LVCMOS33} [get_ports {jd[6]}];  # IO_L15N_T2_DQS_35
 # set_property -dict {PACKAGE_PIN F3 IOSTANDARD LVCMOS33} [get_ports {jd[7]}];  # IO_L13N_T2_MRCC_35
 
-### JXADC
+## JXADC
 # set_property -dict {PACKAGE_PIN A14 IOSTANDARD LVCMOS33} [get_ports {xa_n[0]}];  # IO_L9N_T1_DQS_AD3N_15
 # set_property -dict {PACKAGE_PIN A13 IOSTANDARD LVCMOS33} [get_ports {xa_p[0]}];  # IO_L9P_T1_DQS_AD3P_15
 # set_property -dict {PACKAGE_PIN A16 IOSTANDARD LVCMOS33} [get_ports {xa_n[1]}];  # IO_L8N_T1_AD10N_15
@@ -146,14 +164,14 @@ set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}]; 
 # set_property -dict {PACKAGE_PIN B18 IOSTANDARD LVCMOS33} [get_ports {xa_p[3]}];  # IO_L10P_T1_AD11P_15
 
 #### USB-UART Bridge (Serial Port) ####
-## FT2232HQ: 1 Channel USB to serial UART interface
+### FT2232HQ: 1 Channel USB to serial UART interface
 # set_property -dict {PACKAGE_PIN C4 IOSTANDARD LVCMOS33} [get_ports {uart_txd_in}];  # IO_L7P_T1_AD6P_35
 # set_property -dict {PACKAGE_PIN D4 IOSTANDARD LVCMOS33} [get_ports {uart_rxd_out}];  # IO_L11N_T1_SRCC_35
 # set_property -dict {PACKAGE_PIN D3 IOSTANDARD LVCMOS33} [get_ports {uart_cts}];  # IO_L12N_T1_MRCC_35
 # set_property -dict {PACKAGE_PIN E5 IOSTANDARD LVCMOS33} [get_ports {uart_rts}];  # IO_L5N_T0_AD13N_35
 
 #### Accelerometer ####
-## ADXL362BCCZ: 3 Axis, 2/4/8 Digital Output MEMS Accelerometer
+### ADXL362BCCZ: 3 Axis, 2/4/8 Digital Output MEMS Accelerometer
 # set_property -dict {PACKAGE_PIN F14 IOSTANDARD LVCMOS33} [get_ports {acl_mosi}];  # IO_L5N_T0_AD9N_15
 # set_property -dict {PACKAGE_PIN E15 IOSTANDARD LVCMOS33} [get_ports {acl_miso}];  # IO_L11P_T1_SRCC_15
 # set_property -dict {PACKAGE_PIN F15 IOSTANDARD LVCMOS33} [get_ports {acl_sclk}];  # IO_L14P_T2_SRCC_15
@@ -162,26 +180,26 @@ set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}]; 
 # set_property -dict {PACKAGE_PIN C16 IOSTANDARD LVCMOS33} [get_ports {acl_int[1]}];  # IO_L20P_T3_A20_15
 
 #### Temperature Sensor ####
-## ADT7420UCPZ: +-25degC Accurate, 16-Bit Digital I2C Temperature Sensor
+### ADT7420UCPZ: +-25degC Accurate, 16-Bit Digital I2C Temperature Sensor
 # set_property -dict {PACKAGE_PIN C14 IOSTANDARD LVCMOS33} [get_ports {tmp_scl}];  # IO_L1N_T0_AD0N_15
 # set_property -dict {PACKAGE_PIN C15 IOSTANDARD LVCMOS33} [get_ports {tmp_sda}];  # IO_L12N_T1_MRCC_15
 # set_property -dict {PACKAGE_PIN D13 IOSTANDARD LVCMOS33} [get_ports {tmp_int}];  # IO_L6N_T0_VREF_15
 # set_property -dict {PACKAGE_PIN B14 IOSTANDARD LVCMOS33} [get_ports {tmp_ct}];  # IO_L2N_T0_AD8N_15
 
 #### Microphone ####
-## SPK0833LM4H: Omnidirectional Microphone with Bottom Port and Digital Output
+### SPK0833LM4H: Omnidirectional Microphone with Bottom Port and Digital Output
 # set_property -dict {PACKAGE_PIN J5 IOSTANDARD LVCMOS33} [get_ports {m_clk}];  # IO_25_35
 # set_property -dict {PACKAGE_PIN H5 IOSTANDARD LVCMOS33} [get_ports {m_data}];  # IO_L24N_T3_35
 # set_property -dict {PACKAGE_PIN F5 IOSTANDARD LVCMOS33} [get_ports {m_lrsel}];  # IO_0_35
 
 #### PWM Audio Amplifier ####
-## Sallen-Key Butterworth Low-pass 4th Order Filter
+### Sallen-Key Butterworth Low-pass 4th Order Filter
 # set_property -dict {PACKAGE_PIN A11 IOSTANDARD LVCMOS33} [get_ports {aud_pwm}];  # IO_L4N_T0_15
 # set_property -dict {PACKAGE_PIN D12 IOSTANDARD LVCMOS33} [get_ports {aud_sd}];  # IO_L6P_T0_15
 
 #### Quad-SPI Flash ####
-## S25FL128SAGNFI00: Serial Flash Memory, 128Mbit, Low Voltage, 133MHz SPI Bus Interface
-## S25FL127SABMFx00x: Serial Flash Memory, 128Mbit, Low Voltage, 108MHz SPI Bus Interface
+### S25FL128SAGNFI00: Serial Flash Memory, 128Mbit, Low Voltage, 133MHz SPI Bus Interface
+### S25FL127SABMFx00x: Serial Flash Memory, 128Mbit, Low Voltage, 108MHz SPI Bus Interface
 # set_property -dict {PACKAGE_PIN K17 IOSTANDARD LVCMOS33} [get_ports {qspi_dq[0]}];  # IO_L1P_T0_D00_MOSI_14
 # set_property -dict {PACKAGE_PIN K18 IOSTANDARD LVCMOS33} [get_ports {qspi_dq[1]}];  # IO_L1N_T0_D01_DIN_14
 # set_property -dict {PACKAGE_PIN L14 IOSTANDARD LVCMOS33} [get_ports {qspi_dq[2]}];  # IO_L2P_T0_D02_14
@@ -189,7 +207,7 @@ set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}]; 
 # set_property -dict {PACKAGE_PIN L13 IOSTANDARD LVCMOS33} [get_ports {qspi_csn}];  # IO_L6P_T0_FCS_B_14
 
 #### MicroSD Slot ####
-## microSD-CSD-11-xxxxx: Push-Push, Bottom board mounting micro SD connector
+### microSD-CSD-11-xxxxx: Push-Push, Bottom board mounting micro SD connector
 # set_property -dict {PACKAGE_PIN C2 IOSTANDARD LVCMOS33} [get_ports {sd_dat[0]}];  # IO_L16P_T2_35
 # set_property -dict {PACKAGE_PIN E1 IOSTANDARD LVCMOS33} [get_ports {sd_dat[1]}];  # IO_L18N_T2_35
 # set_property -dict {PACKAGE_PIN F1 IOSTANDARD LVCMOS33} [get_ports {sd_dat[2]}];  # IO_L18P_T2_35
@@ -200,7 +218,7 @@ set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}]; 
 # set_property -dict {PACKAGE_PIN E2 IOSTANDARD LVCMOS33} [get_ports {sd_reset}];  # IO_L14P_T2_SRCC_35
 
 #### Ethernet ####
-## LAN8720A-CP-TR: 10/100 Ethernet Transceiver with HP Auto-MDIX Support
+### LAN8720A-CP-TR: 10/100 Ethernet Transceiver with HP Auto-MDIX Support
 # set_property -dict {PACKAGE_PIN A10 IOSTANDARD LVCMOS33} [get_ports {eth_txd[0]}];  # IO_L14P_T2_SRCC_16 
 # set_property -dict {PACKAGE_PIN A8 IOSTANDARD LVCMOS33} [get_ports {eth_txd[1]}];  # IO_L12N_T1_MRCC_16 
 # set_property -dict {PACKAGE_PIN C11 IOSTANDARD LVCMOS33} [get_ports {eth_rxd[0]}];  # IO_L13P_T2_MRCC_16 
@@ -215,12 +233,12 @@ set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports {led[15]}]; 
 # set_property -dict {PACKAGE_PIN D5 IOSTANDARD LVCMOS33} [get_ports {eth_refclk}];  # IO_L11P_T1_SRCC_35
 
 #### USB HID Host ####
-## PIC24FJ128GB106-I/MR: General Purpose and USB 16-Bit Flash Microcontroller, 64-Pin
+### PIC24FJ128GB106-I/MR: General Purpose and USB 16-Bit Flash Microcontroller, 64-Pin
 # set_property -dict {PACKAGE_PIN F4 IOSTANDARD LVCMOS33} [get_ports {ps2_clk}];  # IO_L13P_T2_MRCC_35
 # set_property -dict {PACKAGE_PIN B2 IOSTANDARD LVCMOS33} [get_ports {ps2_data}];  # IO_L10N_T1_AD15N_35
 
 #### VGA Port ####
-## 1-1734530-3: DB15F-HD 15 Pin Edge Connector
+### 1-1734530-3: DB15F-HD 15 Pin Edge Connector
 # set_property -dict {PACKAGE_PIN A3 IOSTANDARD LVCMOS33} [get_ports {vga_r[0]}];  # IO_L8N_T1_AD14N_35
 # set_property -dict {PACKAGE_PIN B4 IOSTANDARD LVCMOS33} [get_ports {vga_r[1]}];  # IO_L7N_T1_AD6N_35
 # set_property -dict {PACKAGE_PIN C5 IOSTANDARD LVCMOS33} [get_ports {vga_r[2]}];  # IO_L1N_T0_AD4N_35
