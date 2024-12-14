@@ -43,6 +43,7 @@
 .jobs
 
 ### project synth
+*/*.runs/synth*/__synthesis_is_complete__
 */*.runs/synth*/*.xml
 */*.runs/synth*/*.txt
 */*.runs/synth*/*.sh
@@ -51,6 +52,7 @@
 */*.runs/synth*/*.xdc
 !*/*.runs/synth*/*utilization*.rpt
 
+*.runs/synth*/__synthesis_is_complete__
 *.runs/synth*/*.xml
 *.runs/synth*/*.txt
 *.runs/synth*/*.sh
