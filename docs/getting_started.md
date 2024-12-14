@@ -14,6 +14,7 @@ Before you begin, ensure you have the following tools installed:
         -   Download [MinGW-W64 online installer](https://github.com/niXman/mingw-builds-binaries) from the README.
         -   Run executable as Admin and choose `C:/Program Files/` as your directory.
     -   Add the MinGW-w64 bin folder (e.g., `C:/Program Files/mingw64/bin/`) to your system's PATH environment variable.
+    -   Create a new Environmental Variable called `GCC_SIM_EXE_PATH` and set the value to the same directory as above.
     -   Verify the installation by opening a Command Prompt and typing `gcc --version`.
 -   If using [VSCode](https://code.visualstudio.com/):
     -   Install the recommended workspace extensions.
