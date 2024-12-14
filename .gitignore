@@ -42,6 +42,11 @@
 
 .jobs
 
+### project sim
+*/*.sim/sim*/
+
+*.sim/sim*/
+
 ### project synth
 */*.runs/synth*/__synth*
 */*.runs/synth*/*.xml
