@@ -12,7 +12,7 @@ Before you begin, ensure you have the following tools installed:
         -   Download and install [MinGW-w64](https://www.mingw-w64.org/downloads/).
         -   Add the MinGW-w64 bin folder (e.g., `C:/Program Files/mingw64/bin/`) to your system's PATH environment variable.
     -   **Automatic Installation**:
-        -   Download [MinGW-W64 online installer](https://github.com/Vuniverse0/mingwInstaller/releases/download/1.2.1/mingwInstaller.exe).
+        -   Download [MinGW-W64 online installer](https://github.com/niXman/mingw-builds-binaries) from the README.
         -   Run executable as Admin and choose `C:/Program Files/` as your directory.
     -   Verify the installation by opening a Command Prompt and typing `gcc --version`.
 -   If using [VSCode](https://code.visualstudio.com/):
