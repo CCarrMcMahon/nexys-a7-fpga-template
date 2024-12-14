@@ -24,14 +24,7 @@ This repository serves as a template for creating FPGA projects on the Nexys A7 
 
 ## Getting Started
 
-### Prerequisites
-
--   [Vivado Design Suite](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html) installed on your computer.
--   If using [VSCode](https://code.visualstudio.com/)
-    -   Install the recommended workspace extensions.
-    -   Install [verible](https://github.com/chipsalliance/verible) and place the binaries in `C:\Program Files\verible`.
-
-### Installation
+To get started with the `nexys-a7-fpga-template` project, follow these steps:
 
 1. Clone the repository:
 
@@ -44,7 +37,7 @@ This repository serves as a template for creating FPGA projects on the Nexys A7 
 -   **Method 1**: Open Vivado Design Suite, then navitage to `File > Open Project` and select the `nexys_a7_fpga_template.xpr` file.
 -   **Method 2**: Navigate to the cloned repository and double-click the `nexys_a7_fpga_template.xpr` file to open it directly in vivado.
 
-3. Follow the documentation in the `docs` directory to configure and build your FPGA design.
+3. For detailed instructions, see the [Getting Started Guide](docs/getting_started.md)
 
 ## Usage
 

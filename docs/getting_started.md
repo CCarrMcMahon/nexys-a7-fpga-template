@@ -35,7 +35,7 @@ Here's an overview of the key directories and files in this template:
     -   `impl_1/`: Implementation files such as utilization reports and the `nexys_a7_fpga_template.bit` file used to flash the FPGA.
     -   `synth_1/`: Synthesis file such as utilization reports.
 -   `nexys_a7_fpga_template.sim/`: Contains simulation files and testbenches.
--   `nexys_a7_fpga_template.srcs`: Contains various source files.
+-   `nexys_a7_fpga_template.srcs/`: Contains various source files.
     -   `constrs_1/`: Includes constraint files for the Nexys A7 board.
     -   `sources_1/`: Includes the source files for your FPGA design.
 -   `nexys_a7_fpga_template.xpr`: Vivado project file.
