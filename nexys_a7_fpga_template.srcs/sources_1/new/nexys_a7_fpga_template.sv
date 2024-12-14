@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+
 module nexys_a7_fpga_template (
     input logic clk100mhz,
     input logic cpu_resetn,

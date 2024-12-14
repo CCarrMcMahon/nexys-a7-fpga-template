@@ -6,8 +6,12 @@ This guide will walk you through the process of setting up the `nexys-a7-fpga-te
 
 Before you begin, ensure you have the following tools installed:
 
--   [Vivado Design Suite](https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/vivado.html) installed on your computer.
--   If using [VSCode](https://code.visualstudio.com/)
+-   [Vivado Design Suite](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools.html) installed on your computer.
+-   [MinGW-w64](https://www.mingw-w64.org/) (for GCC):
+    -   Download and install [MinGW-w64](https://www.mingw-w64.org/downloads/).
+    -   Add the MinGW-w64 bin folder (e.g., `C:\Program Files\msys64\ucrt64\bin`) to your system's PATH environment variable.
+    -   Verify the installation by opening a Command Prompt and typing `gcc --version`.
+-   If using [VSCode](https://code.visualstudio.com/):
     -   Install the recommended workspace extensions.
     -   Install [verible](https://github.com/chipsalliance/verible) and place the binaries in `C:\Program Files\verible`.
 
@@ -17,9 +21,9 @@ Follow these steps to set up the project on your local machine:
 
 1. Clone the repository:
 
-    ```bash
-    git clone git@github.com:CCarrMcMahon/nexys-a7-fpga-template.git
-    ```
+```bash
+git clone git@github.com:CCarrMcMahon/nexys-a7-fpga-template.git
+```
 
 2. Open the project in Vivado:
 
@@ -28,16 +32,32 @@ Follow these steps to set up the project on your local machine:
 
 ## Project Structure
 
-Here's an overview of the key directories and files in this template:
+Here's an overview of the key directories and files in this template, following the default Vivado directory structure:
+
+```
+nexys_a7_fpga_template/
+├── docs/
+│   └── getting_started.md
+├── nexys_a7_fpga_template.runs/
+│   ├── impl_1/
+│   │   └── nexys_a7_fpga_template.bit
+│   └── synth_1/
+├── nexys_a7_fpga_template.srcs/
+│   ├── constrs_1/
+│   ├── sim_1/
+│   └── sources_1/
+├── nexys_a7_fpga_template.xpr
+```
 
 -   `docs/`: Documentation files.
--   `nexys_a7_fpga_template.runs/`: Contains files generated from synthesis and implementation.
-    -   `impl_1/`: Implementation files such as utilization reports and the `nexys_a7_fpga_template.bit` file used for programming the FPGA.
-    -   `synth_1/`: Synthesis file such as utilization reports.
--   `nexys_a7_fpga_template.sim/`: Contains simulation files and testbenches.
--   `nexys_a7_fpga_template.srcs/`: Contains various source files.
+-   `runs/`: Holds the output of synthesis and implementation processes.
+    -   `impl_1/`: Contains the results of the implementation process, which maps the netlist onto the FPGA fabric and includes placement and routing information.
+        -   `nexys_a7_fpga_template.bit`: The bitstream file used to program the FPGA.
+    -   `synth_1/`: Contains the results of the synthesis process, which converts HDL code into a netlist.
+-   `srcs/`: Contains various source files for the FPGA.
     -   `constrs_1/`: Includes constraint files for the Nexys A7 board.
-    -   `sources_1/`: Includes the source files for your FPGA design.
+    -   `sim_1/`: Contains simulation files and testbenches.
+    -   `sources_1/`: Contains the source files for your FPGA design.
 -   `nexys_a7_fpga_template.xpr`: Vivado project file.
 
 ## Building and Programming
