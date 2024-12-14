@@ -25,20 +25,12 @@
 ########################################################################################################################
 
 ## General Configuration
-set_property CONFIG_MODE SPIx4 [current_design]
 set_property CFGBVS VCCO [current_design]
+set_property CONFIG_MODE SPIx4 [current_design]
 set_property CONFIG_VOLTAGE 3.3 [current_design]
-set_property CONFIG_STARTUP_CLK CCLK [current_design]
 
 ## Bitstream Settings
-# General
+set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]
 set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
-set_property BITSTREAM.GENERAL.COMPRESSION_MODE ZIP [current_design]
-
-# Config
-set_property BITSTREAM.CONFIG.OVERTEMPPOWERDOWN ENABLE [current_design]
-set_property BITSTREAM.CONFIG.WATCHDOG_TIMEOUT 500ms [current_design]
-set_property BITSTREAM.CONFIG.ENCRYPTION AES256 [current_design]
-set_property BITSTREAM.CONFIG.AUTHENTICATION RSA [current_design]
-set_property BITSTREAM.CONFIG.DEBUG_INTERFACE_ENABLE TRUE [current_design]
+set_property BITSTREAM.STARTUP.STARTUPCLK CCLK [current_design]
 
