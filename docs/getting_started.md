@@ -32,7 +32,7 @@ Here's an overview of the key directories and files in this template:
 
 -   `docs/`: Documentation files.
 -   `nexys_a7_fpga_template.runs/`: Contains files generated from synthesis and implementation.
-    -   `impl_1/`: Implementation files such as utilization reports and the `nexys_a7_fpga_template.bit` file used to flash the FPGA.
+    -   `impl_1/`: Implementation files such as utilization reports and the `nexys_a7_fpga_template.bit` file used for programming the FPGA.
     -   `synth_1/`: Synthesis file such as utilization reports.
 -   `nexys_a7_fpga_template.sim/`: Contains simulation files and testbenches.
 -   `nexys_a7_fpga_template.srcs/`: Contains various source files.
