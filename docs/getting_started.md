@@ -26,9 +26,9 @@ Follow these steps to set up the project on your local machine:
 
 1. Clone the repository:
 
-```bash
-git clone git@github.com:CCarrMcMahon/nexys-a7-fpga-template.git
-```
+    ```bash
+    git clone git@github.com:CCarrMcMahon/nexys-a7-fpga-template.git
+    ```
 
 2. Open the project in Vivado:
 
@@ -51,7 +51,7 @@ nexys_a7_fpga_template/
 │   ├── constrs_1/
 │   ├── sim_1/
 │   └── sources_1/
-├── nexys_a7_fpga_template.xpr
+└── nexys_a7_fpga_template.xpr
 ```
 
 -   `docs/`: Documentation files.
@@ -89,5 +89,5 @@ nexys_a7_fpga_template/
 
 To verify your design, you can run simulations using the provided testbenches:
 
-1. Navigate to the `nexys_a7_fpga_tempalte/srcs/sim_1/` directory.
+1. Navigate to the `nexys_a7_fpga_template/srcs/sim_1/` directory.
 2. Use the provided simulation scripts to run the simulations and analyze the results.
